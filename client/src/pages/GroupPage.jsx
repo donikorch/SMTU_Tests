@@ -1,27 +1,34 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { appContext } from '../Context';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 function GroupPage() {
   const { group } = useParams();
+  const { user } = useContext(appContext);
 
-  const [login, setLogin] = useState("");
-  const [pass, setPassword] = useState("");
-  const [firstName, setName] = useState("");
-  const [lastName, setLastname] = useState("");
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [middleName, setMiddleName] = useState('');
 
-  const [students, setStudents] = useState("");
-  const onHandleSubmit = async (e) => {
+  const [students, setStudents] = useState('');
+  const onHandleSubmit = async () => {
     const student = {
       login,
-      pass,
+      password,
       firstName,
       lastName,
+      middleName,
       group,
-      role: "student",
+      role: 'student',
     };
     try {
-      const res = await axios.post("/api/auth/addUser", student);
+      await axios.post('/api/auth/addUser', student);
     } catch (error) {
       console.error(error);
     }
@@ -41,50 +48,79 @@ function GroupPage() {
 
   return (
     <>
-      <form onSubmit={onHandleSubmit}>
-        <input
-          type="text"
-          name="login"
-          placeholder="Логин"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
-        />
-
-        <input
-          type="password"
-          name="pass"
-          placeholder="Пароль"
-          value={pass}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="text"
-          name="name"
-          placeholder="Имя"
-          value={firstName}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Фамилия"
-          value={lastName}
-          onChange={(e) => setLastname(e.target.value)}
-        />
-        <button type="submit">Создать</button>
-      </form>
-      <p>Студенты группы N{group}</p>
-      <div>
-        {students.length > 0 ? (
-          students.map((student) => (
-            <div key={student.id}>
-              {student.firstName} {student.lastName}
-            </div>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
+      {user?.role === 'admin' ? (
+        <>
+          <Form className='mb-5' onSubmit={onHandleSubmit}>
+            <Form.Group className='mb-3'>
+              <Form.Label>Логин</Form.Label>
+              <Form.Control
+                type='text'
+                name='login'
+                placeholder='Введите логин'
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label>Пароль</Form.Label>
+              <Form.Control
+                type='password'
+                name='password'
+                placeholder='Введите пароль'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label>Имя</Form.Label>
+              <Form.Control
+                type='text'
+                name='name'
+                placeholder='Введите имя'
+                value={firstName}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label>Фамилия</Form.Label>
+              <Form.Control
+                type='text'
+                name='lastName'
+                placeholder='Введите фамилию'
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='mb-3'>
+              <Form.Label>Отчество</Form.Label>
+              <Form.Control
+                type='text'
+                name='middleName'
+                placeholder='Введите отчество'
+                value={middleName}
+                onChange={(e) => setMiddleName(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant='secondary' type='submit'>
+              Создать
+            </Button>
+          </Form>
+          <p>Студенты группы N{group}</p>
+          <div>
+            {students.length > 0 ? (
+              students.map((student) => (
+                <div key={student.id}>
+                  {student.firstName} {student.lastName}
+                </div>
+              ))
+            ) : (
+              <p>Список пуст</p>
+            )}
+          </div>
+        </>
+      ) : (
+        <h1>404</h1>
+      )}
     </>
   );
 }

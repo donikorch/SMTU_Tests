@@ -1,11 +1,9 @@
-require("dotenv").config();
-const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const { User, Group } = require("../../db/models");
-const generateTokens = require("../../utils/authUtils");
-const configJWT = require("../../middleware/configJWT");
+require('dotenv').config();
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
+const { User, Group, Admin } = require('../../db/models');
 
-router.get("/groups", async (req, res) => {
+router.get('/groups', async (req, res) => {
   try {
     const groups = await Group.findAll({
       where: { adminId: res.locals.user.id },
@@ -16,10 +14,10 @@ router.get("/groups", async (req, res) => {
   }
 });
 
-router.get("/teachers", async (req, res) => {
+router.get('/teachers', async (req, res) => {
   try {
-    const teachers = await User.findAll({
-      where: { role: "teacher" },
+    const teachers = await Admin.findAll({
+      where: { role: 'admin' },
     });
     res.status(200).json(teachers);
   } catch ({ message }) {
@@ -27,7 +25,7 @@ router.get("/teachers", async (req, res) => {
   }
 });
 
-router.get("/:number/students", async (req, res) => {
+router.get('/:number/students', async (req, res) => {
   const { number } = req.params;
   try {
     const group = await Group.findOne({ where: { number } });
@@ -42,7 +40,7 @@ router.get("/:number/students", async (req, res) => {
   }
 });
 
-router.post("/addGroup", async (req, res) => {
+router.post('/addGroup', async (req, res) => {
   const { group } = req.body;
   try {
     const groups = await Group.create({

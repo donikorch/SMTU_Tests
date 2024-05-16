@@ -29,7 +29,10 @@ function SignIn() {
       setUser(res.data.user);
       navigate('/tests');
     }
-    // у препода страница создания учеников
+    if (res.data.user.role === 'admin') {
+      setUser(res.data.user);
+      navigate('/teacher');
+    }
   };
 
   return (

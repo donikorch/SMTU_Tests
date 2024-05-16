@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useContext, useRef, useEffect } from 'react';
 import { appContext } from '../../Context';
 import axios from 'axios';
-import SelectTest from '../../components/SelectTest';
+import SelectTest from '../SelectTest';
 
 import Button from 'react-bootstrap/Button';
 
