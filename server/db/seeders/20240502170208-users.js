@@ -8,10 +8,9 @@ module.exports = {
       {
         login: '123',
         password: await bcrypt.hash('123', 10),
-        firstName: 'Данил',
-        lastName: 'Клинков',
-        middleName: 'Антонович',
-        role: 'student',
+        firstName: 'Иванова',
+        lastName: 'Мария',
+        middleName: 'Вадимовна',
         groupId: '1',
         createdAt: new Date(),
         updatedAt: new Date(),

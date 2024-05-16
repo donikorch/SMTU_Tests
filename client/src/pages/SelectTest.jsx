@@ -1,18 +1,18 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-import { tests } from "./Modules/modules";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { tests } from './Modules/modules';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function SelectTest({ moduleId, setTest }) {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
     axios
-      .get("/api/tests/getResults")
+      .get('/api/tests/getResults')
       .then((res) => {
         setResults(res.data.results);
       })
@@ -41,16 +41,16 @@ function SelectTest({ moduleId, setTest }) {
   };
 
   return (
-    <ButtonGroup size="lg" className="mb-2">
+    <ButtonGroup size='lg' className='mb-2'>
       <Button
-        variant="outline-secondary"
+        variant='outline-secondary'
         onClick={() => onHandleTest(1)}
         disabled={disableTest(moduleId, 1)}
       >
         {tests.find((item) => item.moduleId === moduleId).firstTest}
       </Button>
       <Button
-        variant="outline-secondary"
+        variant='outline-secondary'
         onClick={() => onHandleTest(2)}
         disabled={disableTest(moduleId, 2)}
       >

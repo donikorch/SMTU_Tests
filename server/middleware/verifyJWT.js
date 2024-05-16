@@ -10,11 +10,12 @@ function verifyRefreshToken(req, res, next) {
     const { accessToken, refreshToken } = generateTokens({
       user: {
         id: user.id,
+        login: user.login,
         firstName: user.firstName,
         lastName: user.lastName,
         middleName: user.middleName,
         role: user.role,
-        groupId: user.groupId,
+        groupId: user.groupId ? user.groupId : null,
       },
     });
 
