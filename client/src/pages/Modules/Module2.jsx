@@ -6,7 +6,7 @@ import SelectTest from '../../components/SelectTest';
 
 import Button from 'react-bootstrap/Button';
 
-function Module1() {
+function Module2() {
   const [test, setTest] = useState(0);
   const [answers, setAnswers] = useState({});
   const [question, setQuestion] = useState(1);
@@ -593,4 +593,4 @@ function Module1() {
   );
 }
 
-export default Module1;
+export default Module2;
