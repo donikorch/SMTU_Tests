@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       }
   }
   Group.init({
-    number: DataTypes.INTEGER
+    number: DataTypes.INTEGER,
+    adminId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Group',
