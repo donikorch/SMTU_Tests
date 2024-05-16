@@ -1,0 +1,74 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-sign-in {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 10%;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90%;
+}
+
+.tests {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 35%;
+  height: 100%;
+}
+
+.buttons {
+  width: 100%;
+}
+
+.text {
+  font-size: 2rem;
+}
+
+.text2 {
+  font-size: 1.5rem;
+}
+
+.question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 65%;
+}
+
+.img {
+  height: 50vh;
+}
+
+.container-img {
+  position: relative;
+}
+
+.module-text {
+  text-align: left;
+}
