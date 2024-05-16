@@ -1,4 +1,4 @@
-import SelectTest from '../../components/SelectTest';
+import SelectTest from "../SelectTest";
 
 function Module1() {
   return <SelectTest moduleId={8}></SelectTest>;

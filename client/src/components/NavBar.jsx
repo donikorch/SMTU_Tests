@@ -1,12 +1,12 @@
-import { useContext } from 'react';
-import { appContext } from '../Context';
-import { useNavigate } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
-import axios from 'axios';
+import { useContext } from "react";
+import { appContext } from "../Context";
+import { Link, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import axios from "axios";
 
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 function NavBar() {
   const { user, setUser } = useContext(appContext);
@@ -16,29 +16,31 @@ function NavBar() {
   const onHandleLogout = async (e) => {
     e.preventDefault();
 
-    const res = await axios.get('/api/auth/logout');
+    const res = await axios.get("/api/auth/logout");
 
-    if (res.data.message === 'success') {
+    if (res.data.message === "success") {
       setUser(null);
-      navigate('/');
+      navigate("/");
     }
   };
 
   return (
     <>
-      <Navbar bg='secondary' data-bs-theme='dark'>
+      <Navbar bg="secondary" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href='/tests'>
+          <Navbar.Brand href="/tests">
             {user?.lastName} {user?.firstName}
           </Navbar.Brand>
-          <Navbar.Collapse className='justify-content-end'>
+          <Link to="/teacher">Управление группами</Link>
+          <Link to="/admin">Добавить преподавателя</Link>
+          <Navbar.Collapse className="justify-content-end">
             <Nav>
               <Nav.Link onClick={(e) => onHandleLogout(e)}>Выйти</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <main className='main'>
+      <main className="main">
         <Outlet />
       </main>
     </>
