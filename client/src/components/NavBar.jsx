@@ -37,15 +37,19 @@ function NavBar() {
               {user?.lastName} {user?.firstName}
             </Navbar.Brand>
           )}
-          {user?.role === 'admin' && user?.login === 'admin' ? (
+          {user?.login === 'admin' ? (
             <Nav>
               <Nav.Link href='/teacher'>Управление группами</Nav.Link>
               <Nav.Link href='/admin'>Добавить преподавателя</Nav.Link>
             </Nav>
           ) : (
-            <Nav>
-              <Nav.Link href='/teacher'>Управление группами</Nav.Link>
-            </Nav>
+            <>
+              {user?.role === 'admin' && (
+                <Nav>
+                  <Nav.Link href='/teacher'>Управление группами</Nav.Link>
+                </Nav>
+              )}
+            </>
           )}
           <Navbar.Collapse className='justify-content-end'>
             <Nav>
