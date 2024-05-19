@@ -62,7 +62,11 @@ body {
 }
 
 .img {
-  height: 50vh;
+  height: 500px;
+}
+
+.img2 {
+  height: 650px;
 }
 
 .container-img {

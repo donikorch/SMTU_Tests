@@ -17,7 +17,7 @@ function Module3() {
   const { user } = useContext(appContext);
   const navigate = useNavigate();
 
-  const handleInputChange = (event) => {
+  const onHandleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
@@ -33,60 +33,74 @@ function Module3() {
   const onHandleAreaClick = (e, index) => {
     if (index < 5) {
       const maxAttempts = 3;
-      setAnswers({ ...answers, [`question${index}`]: 1 });
 
-      if (
-        e.target.className === 'img' ||
-        (e.target.className === 'area' &&
-          index === 3 &&
-          ((test === 1 && inputValue !== '30') ||
-            (test === 2 && inputValue !== 'Бур')))
-      ) {
-        const attempts = answers[`question${index}`] || 0;
-        if (attempts < maxAttempts - 1) {
-          setAnswers({ ...answers, [`question${index}`]: attempts + 1 });
+      setAnswers((prevAnswers) => {
+        const attempts = prevAnswers[`question${index}`] || 0;
 
-          alert(
-            `Неверно! Использовано попыток ${attempts + 1} из ${maxAttempts}`
-          );
-        } else {
-          setAnswers({ ...answers, [`question${index}`]: false });
-          setQuestion(index + 1);
+        if (
+          e.target.className === 'img' ||
+          (e.target.className === 'area' &&
+            index === 3 &&
+            ((test === 1 && inputValue !== '30') ||
+              (test === 2 && inputValue !== 'Бур')))
+        ) {
+          if (attempts < maxAttempts - 1) {
+            alert(
+              `Неверно! Использовано попыток ${attempts + 1} из ${maxAttempts}`
+            );
+            return { ...prevAnswers, [`question${index}`]: attempts + 1 };
+          } else {
+            alert('Неверно! Попытки кончились.');
+            setQuestion(index + 1);
 
-          alert('Неверно! Попытки кончились.');
-        }
-      }
+            if (index === 4) {
+              const element = text2.current;
+              if (element) {
+                element.style.display = 'none';
+              }
+            }
 
-      if (
-        (e.target.className === 'area' && index !== 3) ||
-        (e.target.className === 'area' &&
-          index === 3 &&
-          ((inputValue === '30' && test === 1) ||
-            (inputValue === 'Бур' && test === 2)))
-      ) {
-        setAnswers({ ...answers, [`question${index}`]: true });
-        setQuestion(index + 1);
-      }
-
-      if (index === 4) {
-        const element = text2.current;
-
-        if (element) {
-          element.style.display = 'none';
-        }
-
-        const totalQuestions = Object.keys(answers).length;
-        let correctCount = 0;
-        for (const key in answers) {
-          if (answers[key] === true) {
-            correctCount++;
+            return { ...prevAnswers, [`question${index}`]: false };
           }
         }
 
-        const calculatedScore = Math.round(
-          (correctCount / totalQuestions) * 100
-        );
-        setScore(calculatedScore);
+        if (
+          (e.target.className === 'area' && index !== 3) ||
+          (e.target.className === 'area' &&
+            index === 3 &&
+            ((inputValue === '30' && test === 1) ||
+              (inputValue === 'Бур' && test === 2)))
+        ) {
+          setQuestion(index + 1);
+
+          if (index === 4) {
+            const element = text2.current;
+            if (element) {
+              element.style.display = 'none';
+            }
+          }
+
+          return { ...prevAnswers, [`question${index}`]: true };
+        }
+
+        return prevAnswers;
+      });
+
+      if (index === 4) {
+        setAnswers((prevAnswers) => {
+          const totalQuestions = Object.keys(prevAnswers).length;
+          let correctCount = 0;
+          for (const key in prevAnswers) {
+            if (prevAnswers[key] === true) {
+              correctCount++;
+            }
+          }
+          const calculatedScore = Math.round(
+            (correctCount / totalQuestions) * 100
+          );
+          setScore(calculatedScore);
+          return prevAnswers;
+        });
       }
     }
   };
@@ -136,8 +150,8 @@ function Module3() {
                     <div
                       style={{
                         position: 'absolute',
-                        top: '100px',
-                        left: '350px',
+                        top: '105px',
+                        left: '365px',
                         width: '20px',
                         height: '20px',
                       }}
@@ -191,13 +205,13 @@ function Module3() {
                       type='text'
                       style={{
                         position: 'absolute',
-                        top: '345px',
-                        left: '555px',
+                        top: '362px',
+                        left: '585px',
                         width: '50px',
                         height: '20px',
                       }}
                       value={inputValue}
-                      onChange={handleInputChange}
+                      onChange={onHandleInputChange}
                     />
                     <img
                       src='/img/Module3/test1/3.jpg'
@@ -237,8 +251,8 @@ function Module3() {
                     <div
                       style={{
                         position: 'absolute',
-                        top: '425px',
-                        left: '420px',
+                        top: '448px',
+                        left: '441px',
                         width: '55px',
                         height: '20px',
                       }}
@@ -282,8 +296,8 @@ function Module3() {
                       <div
                         style={{
                           position: 'absolute',
-                          top: '90px',
-                          left: '682px',
+                          top: '93px',
+                          left: '718px',
                           height: '20px',
                           width: '20px',
                         }}
@@ -311,8 +325,8 @@ function Module3() {
                       <div
                         style={{
                           position: 'absolute',
-                          top: '255px',
-                          left: '190px',
+                          top: '267px',
+                          left: '201px',
                           width: '75px',
                           height: '25px',
                         }}
@@ -336,13 +350,13 @@ function Module3() {
                         type='text'
                         style={{
                           position: 'absolute',
-                          top: '254px',
-                          left: '216px',
-                          width: '105px',
-                          height: '22px',
+                          top: '266px',
+                          left: '227px',
+                          width: '109px',
+                          height: '25px',
                         }}
                         value={inputValue}
-                        onChange={handleInputChange}
+                        onChange={onHandleInputChange}
                       />
                       <img
                         src='/img/Module3/test2/3.jpg'
@@ -353,8 +367,8 @@ function Module3() {
                       <div
                         style={{
                           position: 'absolute',
-                          top: '255px',
-                          left: '195px',
+                          top: '269px',
+                          left: '205px',
                           width: '20px',
                           height: '20px',
                         }}
@@ -382,8 +396,8 @@ function Module3() {
                       <div
                         style={{
                           position: 'absolute',
-                          top: '228px',
-                          left: '170px',
+                          top: '240px',
+                          left: '179px',
                           width: '20px',
                           height: '20px',
                         }}
