@@ -78,3 +78,18 @@ body {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: -10px;
+}
+.mainContainer > div {
+  width: calc(50% - 20px);
+  box-sizing: border-box;
+}
+
+.icon { 
+  width: 20px;
+ 
+}
