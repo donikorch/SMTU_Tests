@@ -1,8 +1,11 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
+import DeleteIcon from "./DeleteIcon";
+import { useEffect, useState } from "react";
 
-function ResultCard({ students, isOpen, onClose, item }) {
+function ResultCard({ students, isOpen, onClose, item  }) {
+
   return (
     <Modal show={isOpen} onHide={onClose}>
       <Modal.Body>
@@ -30,7 +33,12 @@ function ResultCard({ students, isOpen, onClose, item }) {
                     <>
                       <td> {result.score}</td>
                       <td>
-                        {result.passed ? <span> + </span> : <span> - </span>}
+                        {result.passed ? (
+                          <span> сдано </span>
+                        ) : (
+                          <span> не сдано </span>
+                        )}
+                        <DeleteIcon result = {result} onClose={onClose}/>
                       </td>
                     </>
                   ))}

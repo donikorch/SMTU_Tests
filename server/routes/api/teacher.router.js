@@ -38,7 +38,6 @@ router.get("/:number/students", async (req, res) => {
         },
       ],
     });
-    console.log(students);
 
     res.status(200).json(students);
   } catch ({ message }) {
