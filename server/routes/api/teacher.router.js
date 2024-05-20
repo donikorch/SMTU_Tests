@@ -1,7 +1,7 @@
 require("dotenv").config();
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const { User, Group, Admin } = require("../../db/models");
+const { User, Group, Admin, Result } = require("../../db/models");
 
 router.get("/groups", async (req, res) => {
   try {
@@ -32,6 +32,11 @@ router.get("/:number/students", async (req, res) => {
 
     const students = await User.findAll({
       where: { groupId: group.id },
+      include: [
+        {
+          model: Result,
+        },
+      ],
     });
 
     res.status(200).json(students);

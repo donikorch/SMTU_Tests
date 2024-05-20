@@ -29,7 +29,6 @@ function ModalW({ isOpen, onClose, user }) {
   return (
     <>
       <Modal show={isOpen} onHide={onClose}>
-        <Modal.Header></Modal.Header>
 
         <Modal.Body>
           <Form className="mb-5" id="myForm" onSubmit={onHandleSubmit}>
