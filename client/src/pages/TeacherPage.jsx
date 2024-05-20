@@ -34,6 +34,7 @@ function TeacherPage() {
     <>
       {user?.role === "admin" ? (
         <>
+          <div className="mainContainer">
           <div>
             <p className="mb-5">Добавить группу</p>
             <Form className="mb-5" onSubmit={onHandleSubmit}>
@@ -69,6 +70,7 @@ function TeacherPage() {
                 <p>Список пуст</p>
               )}
             </div>
+          </div>
           </div>
         </>
       ) : (
