@@ -5,6 +5,7 @@ import { appContext } from '../Context';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import UserCard from '../components/UserCard';
 
 function GroupPage() {
   const { group } = useParams();
@@ -109,9 +110,12 @@ function GroupPage() {
           <div>
             {students.length > 0 ? (
               students.map((student) => (
-                <div key={student.id}>
-                  {student.firstName} {student.lastName}
-                </div>
+                <UserCard  user={student}
+                key={student.id}
+                setUsers={setStudents}/>
+                // <div key={student.id}>
+                //   {student.firstName} {student.lastName}
+                // </div>
               ))
             ) : (
               <p>Список пуст</p>
