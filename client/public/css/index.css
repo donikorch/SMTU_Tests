@@ -62,7 +62,11 @@ body {
 }
 
 .img {
-  height: 50vh;
+  height: 500px;
+}
+
+.img2 {
+  height: 650px;
 }
 
 .container-img {
@@ -84,6 +88,7 @@ body {
   justify-content: space-between;
   margin: -10px;
 }
+
 .mainContainer > div {
   width: calc(50% - 20px);
   box-sizing: border-box;
