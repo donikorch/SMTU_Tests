@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-import { modules } from "../pages/Modules/modules";
-import ResultCard from "./ResultCard";
+import { modules } from '../pages/Modules/modules';
+import ResultCard from './ResultCard';
 
 function ModulesList({ students }) {
   const [modalStates, setModalStates] = useState(
@@ -32,14 +32,11 @@ function ModulesList({ students }) {
   };
   return (
     <Container>
-      <ButtonGroup vertical size="lg" className="buttons">
+      <ButtonGroup vertical size='lg' className='buttons'>
         {modules.map((item) => (
-          <div key={item.id}>
-            <Button
-              variant="outline-secondary"
-              onClick={() => handleOpen(item.id)}
-            >
-              <div className="module-text">
+          <>
+            <Button variant='secondary' onClick={() => handleOpen(item.id)}>
+              <div className='module-text'>
                 Модуль {item.id}: {item.name}
               </div>
             </Button>
@@ -49,7 +46,7 @@ function ModulesList({ students }) {
               isOpen={modalStates[item.id]}
               onClose={() => closeModal(item.id)}
             />
-          </div>
+          </>
         ))}
       </ButtonGroup>
     </Container>

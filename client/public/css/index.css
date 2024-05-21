@@ -83,22 +83,15 @@ body {
   margin: 0;
 }
 
-.mainContainer {
+.panel {
   display: flex;
-  justify-content: space-between;
-  margin: -10px;
+  justify-content: space-around;
 }
 
-.mainContainer > div {
-  width: calc(50% - 20px);
-  box-sizing: border-box;
-}
-
-.icon { 
+.icon {
   width: 20px;
- 
 }
 
-.hidden{
+.hidden {
   display: none;
 }
