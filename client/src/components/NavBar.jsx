@@ -29,9 +29,7 @@ function NavBar() {
       <Navbar bg='secondary' data-bs-theme='dark'>
         <Container>
           {user?.role === 'student' ? (
-            <Navbar.Brand href='/tests'>
-              {user?.lastName} {user?.firstName}
-            </Navbar.Brand>
+            <Navbar.Brand href='/tests'>{user?.name}</Navbar.Brand>
           ) : (
             <Navbar.Brand href='/teacher'>
               {user?.lastName} {user?.firstName}

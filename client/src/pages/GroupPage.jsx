@@ -15,18 +15,14 @@ function GroupPage() {
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [firstName, setName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [middleName, setMiddleName] = useState('');
+  const [name, setName] = useState('');
 
   const [students, setStudents] = useState('');
   const onHandleSubmit = async () => {
     const student = {
       login,
       password,
-      firstName,
-      lastName,
-      middleName,
+      name,
       group,
       role: 'student',
     };
@@ -76,33 +72,13 @@ function GroupPage() {
                 />
               </Form.Group>
               <Form.Group className='mb-3'>
-                <Form.Label>Имя</Form.Label>
+                <Form.Label>ФИО</Form.Label>
                 <Form.Control
                   type='text'
                   name='name'
-                  placeholder='Введите имя'
-                  value={firstName}
+                  placeholder='Введите ФИО'
+                  value={name}
                   onChange={(e) => setName(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className='mb-3'>
-                <Form.Label>Фамилия</Form.Label>
-                <Form.Control
-                  type='text'
-                  name='lastName'
-                  placeholder='Введите фамилию'
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group className='mb-3'>
-                <Form.Label>Отчество</Form.Label>
-                <Form.Control
-                  type='text'
-                  name='middleName'
-                  placeholder='Введите отчество'
-                  value={middleName}
-                  onChange={(e) => setMiddleName(e.target.value)}
                 />
               </Form.Group>
               <Button variant='secondary' type='submit'>

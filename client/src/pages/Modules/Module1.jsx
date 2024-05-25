@@ -31,7 +31,7 @@ function Module1() {
 
   const onHandleAreaClick1 = (e, index) => {
     if (index < 4) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -103,7 +103,7 @@ function Module1() {
 
   const onHandleAreaClick2 = (e, index) => {
     if (index < 5) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -188,13 +188,13 @@ function Module1() {
       {test ? (
         test === 1 ? (
           <>
-            <div className='mb-5 text2' ref={text2}>
+            <div className='mb-5 text' ref={text2}>
               Используя способ цепочного кодирования, опишите данный контур
             </div>
             {question === 1 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     1. Напишите цепь кодов, используя начальную левую нижнюю
                     точку и обход по часовой стрелке. Щелкните затем по центру
                     векторов направлений.
@@ -237,7 +237,7 @@ function Module1() {
             {question === 2 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     2. Напишите значение координаты Х в указанной точке и
                     сделайте по ней щелчок.
                   </div>
@@ -279,7 +279,7 @@ function Module1() {
             {question === 3 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     3. Напишите значение координаты Y в указанной точке и
                     сделайте по ней щелчок.
                   </div>
@@ -330,14 +330,14 @@ function Module1() {
         ) : (
           test === 2 && (
             <>
-              <div className='mb-5 text2' ref={text2}>
+              <div className='mb-5 text' ref={text2}>
                 Выполните перенос точек отрезка на расстояние S=5 по оси Х и
                 Р=-2 по оси Y.
               </div>
               {question === 1 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       1. Перенесите начальную точку по оси Х, щелкнув в новое
                       положение.
                     </div>
@@ -367,7 +367,7 @@ function Module1() {
               {question === 2 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       2. Перенесите конечную точку по оси Х, щелкнув в новое
                       положение.
                     </div>
@@ -397,7 +397,7 @@ function Module1() {
               {question === 3 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       3. Перенесите конечную точку по оси Y, щелкнув в новое
                       положение.
                     </div>
@@ -427,7 +427,7 @@ function Module1() {
               {question === 4 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       4. Перенесите начальную точку по оси Y, щелкнув в новое
                       положение.
                     </div>

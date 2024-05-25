@@ -39,18 +39,35 @@ function SelectModule() {
     <Container className='tests'>
       <span className='mb-5 text'>Выберите модуль</span>
       <ButtonGroup vertical size='lg' className='buttons'>
-        {modules.map((item) => (
-          <Button
-            key={item.id}
-            variant='outline-secondary'
-            onClick={() => onHandleLink(item.id)}
-            disabled={disableModule(item.id)}
-          >
-            <div className='module-text'>
-              Модуль {item.id}: {item.name}
-            </div>
-          </Button>
-        ))}
+        {modules.map((item) => {
+          const part1Result = results.find(
+            (el) => el?.module === item.id && el?.type === 1
+          );
+          const part2Result = results.find(
+            (el) => el?.module === item.id && el?.type === 2
+          );
+
+          return (
+            <Button
+              key={item.id}
+              variant='outline-secondary'
+              onClick={() => onHandleLink(item.id)}
+              disabled={disableModule(item.id)}
+            >
+              <div className='module-text'>
+                <div>
+                  <b>
+                    Модуль {item.id}: {item.name}
+                  </b>
+                </div>
+                <div>
+                  Часть 1: {part1Result ? part1Result.score + '%' : '??%'} |
+                  Часть 2: {part2Result ? part2Result.score + '%' : '??%'}
+                </div>
+              </div>
+            </Button>
+          );
+        })}
       </ButtonGroup>
     </Container>
   );

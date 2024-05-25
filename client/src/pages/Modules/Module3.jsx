@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useContext, useRef, useEffect } from 'react';
 import { appContext } from '../../Context';
-import axios from 'axios';
 import SelectTest from '../SelectTest';
+import axios from 'axios';
 
 import Button from 'react-bootstrap/Button';
 
@@ -32,7 +32,7 @@ function Module3() {
 
   const onHandleAreaClick = (e, index) => {
     if (index < 5) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -129,13 +129,13 @@ function Module3() {
       {test ? (
         test === 1 ? (
           <>
-            <div className='mb-5 text2' ref={text2}>
+            <div className='mb-5 text' ref={text2}>
               Включите угловую привязку с шагом 30 градусов.
             </div>
             {question === 1 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     1-й шаг – выбор кнопки для вызова настройки привязок.
                   </div>
                   <div
@@ -164,7 +164,7 @@ function Module3() {
             {question === 2 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     2-й шаг – выбор команды настройки угловой привязки.
                   </div>
                   <div
@@ -179,8 +179,8 @@ function Module3() {
                     <div
                       style={{
                         position: 'absolute',
-                        top: '455px',
-                        left: '330px',
+                        top: '477px',
+                        left: '347px',
                         width: '65px',
                         height: '20px',
                       }}
@@ -193,7 +193,7 @@ function Module3() {
             {question === 3 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     3. Настройка параметра в 30 градусов и щелчок на включении
                     данного параметра.
                   </div>
@@ -222,8 +222,8 @@ function Module3() {
                     <div
                       style={{
                         position: 'absolute',
-                        top: '255px',
-                        left: '400px',
+                        top: '268px',
+                        left: '423px',
                         width: '100px',
                         height: '15px',
                       }}
@@ -236,7 +236,7 @@ function Module3() {
             {question === 4 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     4. Готово. Завершение настройки привязок.
                   </div>
                   <div
@@ -274,14 +274,14 @@ function Module3() {
         ) : (
           test === 2 && (
             <>
-              <div className='mb-5 text2' ref={text2}>
+              <div className='mb-5 text' ref={text2}>
                 Выполните создание макроэлемента под именем Бур из выделенных
                 элементов.
               </div>
               {question === 1 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       1-й шаг – выбор кнопки для создания макроэлемента.
                     </div>
                     <div
@@ -310,7 +310,7 @@ function Module3() {
               {question === 2 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       2-й шаг – выбор макроэлемента.
                     </div>
                     <div
@@ -339,7 +339,7 @@ function Module3() {
               {question === 3 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       3. Ввод имени макроэлемента и щелчок на значке слева.
                     </div>
                     <div
@@ -381,7 +381,7 @@ function Module3() {
               {question === 4 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       4. Готово. Сверните щелчком список Макро.
                     </div>
                     <div

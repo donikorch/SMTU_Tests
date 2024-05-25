@@ -37,7 +37,7 @@ function Module5() {
     const count = test === 1 ? 8 : test === 2 ? 13 : 0;
 
     if (index < count) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -137,14 +137,14 @@ function Module5() {
       {test ? (
         test === 1 ? (
           <>
-            <div className='mb-5 text2' ref={text2}>
+            <div className='mb-5 text' ref={text2}>
               Вставьте элемент Гайка из раздела Крепежные элементы библиотеки
               конструктивных элементов.
             </div>
             {question === 1 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     1-й шаг – кнопка вызова панели Библиотеки.
                   </div>
                   <div
@@ -173,7 +173,7 @@ function Module5() {
             {question === 2 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     2. Кнопка для отображения списка библиотек.
                   </div>
                   <div
@@ -202,7 +202,7 @@ function Module5() {
             {question === 3 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>3. Выбор библиотеки.</div>
+                  <div className='mb-5 text2'>3. Выбор библиотеки.</div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 3)}
@@ -230,7 +230,7 @@ function Module5() {
             {question === 4 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     4. Отображение элементов раздела.
                   </div>
                   <div
@@ -259,7 +259,7 @@ function Module5() {
             {question === 5 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     5. Выбор вставляемого элемента.
                   </div>
                   <div
@@ -288,7 +288,7 @@ function Module5() {
             {question === 6 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     6. Указание точки вставки элемента в начало координат.
                   </div>
                   <div
@@ -317,7 +317,9 @@ function Module5() {
             {question === 7 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>7. Готово. Завершите команду.</div>
+                  <div className='mb-5 text2'>
+                    7. Готово. Завершите команду.
+                  </div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 7)}
@@ -353,14 +355,14 @@ function Module5() {
         ) : (
           test === 2 && (
             <>
-              <div className='mb-5 text2' ref={text2}>
+              <div className='mb-5 text' ref={text2}>
                 Создайте пользовательскую библиотеку Отверстия с тем же именем
                 файла и добавьте в нее элемент из существующего файла Фрагмент.
               </div>
               {question === 1 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       1-й шаг – выбор меню для вызова команды создания
                       библиотеки.
                     </div>
@@ -390,7 +392,7 @@ function Module5() {
               {question === 2 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>2. Выбор команды.</div>
+                    <div className='mb-5 text2'>2. Выбор команды.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 2)}
@@ -417,7 +419,7 @@ function Module5() {
               {question === 3 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>3. Выбор подкоманды.</div>
+                    <div className='mb-5 text2'>3. Выбор подкоманды.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 3)}
@@ -444,7 +446,7 @@ function Module5() {
               {question === 4 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       4. Ввод имени библиотеки и щелчок на значке слева.
                     </div>
                     <div
@@ -485,7 +487,7 @@ function Module5() {
               {question === 5 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       5. Кнопка вставки элемента из файла фрагмента.
                     </div>
                     <div
@@ -514,7 +516,7 @@ function Module5() {
               {question === 6 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>6. Выбор файла.</div>
+                    <div className='mb-5 text2'>6. Выбор файла.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 6)}
@@ -541,7 +543,7 @@ function Module5() {
               {question === 7 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>7. Сохранение библиотеки.</div>
+                    <div className='mb-5 text2'>7. Сохранение библиотеки.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 7)}
@@ -568,7 +570,7 @@ function Module5() {
               {question === 8 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       8. Ввод имени файла и завершение диалога.
                     </div>
                     <div
@@ -609,7 +611,7 @@ function Module5() {
               {question === 9 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       9. Завершение создания библиотеки.
                     </div>
                     <div
@@ -638,7 +640,7 @@ function Module5() {
               {question === 10 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       10. Кнопка подключения созданной библиотеки.
                     </div>
                     <div
@@ -667,7 +669,7 @@ function Module5() {
               {question === 11 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>11. Выбор файла.</div>
+                    <div className='mb-5 text2'>11. Выбор файла.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 11)}
@@ -694,7 +696,7 @@ function Module5() {
               {question === 12 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       12. Готово. Выберите элемент для вставки в чертеж.{' '}
                     </div>
                     <div

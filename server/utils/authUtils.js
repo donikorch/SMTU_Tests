@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const jwtConfig = require('../middleware/configJWT');
 require('dotenv').config();
+
 // функция генирации токена, принимает в себя полезную нагрузку
 const generateTokens = (payload) => ({
   accessToken: jwt.sign(payload, process.env.ACCESS, {
@@ -12,4 +13,3 @@ const generateTokens = (payload) => ({
 });
 
 module.exports = generateTokens;
- 
