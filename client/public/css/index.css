@@ -29,7 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90%;
+  height: 95%;
 }
 
 .tests {
@@ -37,7 +37,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 35%;
+  width: 45%;
   height: 100%;
 }
 
@@ -74,7 +74,9 @@ body {
 }
 
 .module-text {
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  /* text-align: left; */
 }
 
 .no-arrows::-webkit-inner-spin-button,

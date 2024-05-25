@@ -44,8 +44,6 @@ function AdminPage() {
     fetchTeachers();
   }, []);
 
-  useEffect(() => {});
-
   return (
     <>
       {user?.role === 'admin' ? (
@@ -76,17 +74,6 @@ function AdminPage() {
                   />
                 </Form.Group>
                 <Form.Group className='mb-3'>
-                  <Form.Label>Имя</Form.Label>
-                  <Form.Control
-                    type='text'
-                    name='firstName'
-                    placeholder='Введите имя'
-                    value={firstName}
-                    required
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group className='mb-3'>
                   <Form.Label>Фамилия</Form.Label>
                   <Form.Control
                     type='text'
@@ -95,6 +82,17 @@ function AdminPage() {
                     value={lastName}
                     required
                     onChange={(e) => setLastName(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Form.Label>Имя</Form.Label>
+                  <Form.Control
+                    type='text'
+                    name='firstName'
+                    placeholder='Введите имя'
+                    value={firstName}
+                    required
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </Form.Group>
                 <Form.Group className='mb-3'>

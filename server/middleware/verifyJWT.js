@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const generateTokens = require('../utils/authUtils');
 const configJWT = require('./configJWT');
 
+// верификация токена REFRESH
 function verifyRefreshToken(req, res, next) {
   try {
     const { refresh } = req.cookies;
@@ -11,11 +12,12 @@ function verifyRefreshToken(req, res, next) {
       user: {
         id: user.id,
         login: user.login,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        middleName: user.middleName,
+        name: user.role === 'student' ? user.name : null,
+        firstName: user.role === 'admin' ? user.firstName : null,
+        lastName: user.role === 'admin' ? user.lastName : null,
+        middleName: user.role === 'admin' ? user.middleName : null,
         role: user.role,
-        groupId: user.groupId ? user.groupId : null,
+        groupId: user.groupId || null,
       },
     });
 
@@ -35,6 +37,7 @@ function verifyRefreshToken(req, res, next) {
   }
 }
 
+// верификация токена ACCESS
 function verifyAccessToken(req, res, next) {
   try {
     const { access } = req.cookies;

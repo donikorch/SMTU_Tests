@@ -21,7 +21,7 @@ function Module2() {
     test === 1 ? (count = 10) : test === 2 ? (count = 8) : (count = 0);
 
     if (index < count) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -106,13 +106,13 @@ function Module2() {
       {test ? (
         test === 1 ? (
           <>
-            <div className='mb-5 text2' ref={text2}>
+            <div className='mb-5 text' ref={text2}>
               Постройте несколько геометрических объектов на чертеже.
             </div>
             {question === 1 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     1-й шаг – выбор кнопки для построения скругления левого
                     верхнего угла данной фигуры.
                   </div>
@@ -142,7 +142,7 @@ function Module2() {
             {question === 2 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     2-й шаг – указание объекта скругления.
                   </div>
                   <div
@@ -171,7 +171,7 @@ function Module2() {
             {question === 3 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     3. Построение отрезка от центра фигуры до правого верхнего
                     угла – выбор кнопки команды.
                   </div>
@@ -201,7 +201,7 @@ function Module2() {
             {question === 4 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     4. Указание начальной точки отрезка.
                   </div>
                   <div
@@ -230,7 +230,7 @@ function Module2() {
             {question === 5 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>5. Указание конечной точки.</div>
+                  <div className='mb-5 text2'>5. Указание конечной точки.</div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 5)}
@@ -257,7 +257,7 @@ function Module2() {
             {question === 6 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     6. Построение штриховки левой части фигуры – выбор кнопки
                     команды.
                   </div>
@@ -287,7 +287,7 @@ function Module2() {
             {question === 7 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     7. Указание области штриховки.
                   </div>
                   <div
@@ -316,7 +316,7 @@ function Module2() {
             {question === 8 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>8. Завершение команды.</div>
+                  <div className='mb-5 text2'>8. Завершение команды.</div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 8)}
@@ -343,7 +343,7 @@ function Module2() {
             {question === 9 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     9. Готово. Нажмите кнопку для закрытия фрагмента.
                   </div>
                   <div
@@ -381,14 +381,14 @@ function Module2() {
         ) : (
           test === 2 && (
             <>
-              <div className='mb-5 text2' ref={text2}>
+              <div className='mb-5 text' ref={text2}>
                 Выполните сдвиг фигуры, совместив ее центр с точкой пересечения
                 вспомогательных прямых.
               </div>
               {question === 1 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       1-й шаг – выбор кнопки для отображения всех команд
                       редактирования.
                     </div>
@@ -418,7 +418,7 @@ function Module2() {
               {question === 2 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       2-й шаг – подготовка к сдвигу (выделение объектов).
                     </div>
                     <div
@@ -447,7 +447,7 @@ function Module2() {
               {question === 3 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       3. Выбор кнопки команды для сдвига.
                     </div>
                     <div
@@ -476,7 +476,7 @@ function Module2() {
               {question === 4 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       4. Указание базовой точки для сдвига фигуры.
                     </div>
                     <div
@@ -505,7 +505,7 @@ function Module2() {
               {question === 5 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       5. Указание конечной точки для сдвига.
                     </div>
                     <div
@@ -534,7 +534,7 @@ function Module2() {
               {question === 6 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>6. Завершение команды.</div>
+                    <div className='mb-5 text2'>6. Завершение команды.</div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 6)}
@@ -561,7 +561,7 @@ function Module2() {
               {question === 7 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       7. Готово. Нажмите кнопку для закрытия фрагмента.
                     </div>
                     <div

@@ -1,11 +1,10 @@
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import Table from "react-bootstrap/Table";
-import DeleteIcon from "./DeleteIcon";
-import { useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Table from 'react-bootstrap/Table';
+import DeleteIcon from './DeleteIcon';
+import { useEffect, useState } from 'react';
 
-function ResultCard({ students, isOpen, onClose, item  }) {
-
+function ResultCard({ students, isOpen, onClose, item }) {
   return (
     <Modal show={isOpen} onHide={onClose}>
       <Modal.Body>
@@ -13,8 +12,7 @@ function ResultCard({ students, isOpen, onClose, item  }) {
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>Имя</th>
-                <th>Фамилия</th>
+                <th>ФИО</th>
                 <th>Часть 1</th>
                 <th>Результат</th>
                 <th>Часть 2</th>
@@ -24,8 +22,7 @@ function ResultCard({ students, isOpen, onClose, item  }) {
             <tbody>
               {students.map((student) => (
                 <tr key={student.id}>
-                  <td>{student.firstName} </td>
-                  <td> {student.lastName}</td>
+                  <td>{student.name} </td>
 
                   {student.Results.filter(
                     (results) => results.module === item
@@ -38,7 +35,7 @@ function ResultCard({ students, isOpen, onClose, item  }) {
                         ) : (
                           <span> не сдано </span>
                         )}
-                        <DeleteIcon result = {result} onClose={onClose}/>
+                        <DeleteIcon result={result} onClose={onClose} />
                       </td>
                     </>
                   ))}
@@ -49,7 +46,7 @@ function ResultCard({ students, isOpen, onClose, item  }) {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
+        <Button variant='secondary' onClick={onClose}>
           Close
         </Button>
       </Modal.Footer>

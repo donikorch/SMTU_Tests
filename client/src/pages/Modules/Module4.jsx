@@ -34,7 +34,7 @@ function Module4() {
     const count = test === 1 ? 7 : test === 2 ? 6 : 0;
 
     if (index < count) {
-      const maxAttempts = 3;
+      const maxAttempts = 5;
 
       setAnswers((prevAnswers) => {
         const attempts = prevAnswers[`question${index}`] || 0;
@@ -131,14 +131,14 @@ function Module4() {
       {test ? (
         test === 1 ? (
           <>
-            <div className='mb-5 text2' ref={text2}>
+            <div className='mb-5 text' ref={text2}>
               Выполните вставку фрагмента из файла ПРОЕКТ с разрушением,
               масштабом 0.2 и точкой вставки в начало координат.
             </div>
             {question === 1 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     1-й шаг – выбор кнопки для вызова команды.
                   </div>
                   <div
@@ -167,7 +167,7 @@ function Module4() {
             {question === 2 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     2-й шаг – Выбор файла фрагмента.
                   </div>
                   <div
@@ -196,7 +196,7 @@ function Module4() {
             {question === 3 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>3. Выбор способа вставки.</div>
+                  <div className='mb-5 text2'>3. Выбор способа вставки.</div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 3)}
@@ -224,7 +224,7 @@ function Module4() {
             {question === 4 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     4. Ввод масштаба и щелчок на имени опции.
                   </div>
                   <div
@@ -265,7 +265,7 @@ function Module4() {
             {question === 5 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>
+                  <div className='mb-5 text2'>
                     5. Выбор точки вставки фрагмента.
                   </div>
                   <div
@@ -294,7 +294,9 @@ function Module4() {
             {question === 6 && (
               <>
                 <div className='question'>
-                  <div className='mb-5 text'>6. Готово. Завершите команду.</div>
+                  <div className='mb-5 text2'>
+                    6. Готово. Завершите команду.
+                  </div>
                   <div
                     className='container-img'
                     onClick={(e) => onHandleAreaClick(e, 6)}
@@ -330,14 +332,14 @@ function Module4() {
         ) : (
           test === 2 && (
             <>
-              <div className='mb-5 text2' ref={text2}>
+              <div className='mb-5 text' ref={text2}>
                 Создайте слой с именем Размеры, сделайте его текущим и погасите
                 первоначальный слой.
               </div>
               {question === 1 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       1-й шаг – выбор кнопки для вызова команды создания слоя.
                     </div>
                     <div
@@ -366,7 +368,7 @@ function Module4() {
               {question === 2 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       2-й шаг – выбор кнопки отображения списка слоев.
                     </div>
                     <div
@@ -395,7 +397,7 @@ function Module4() {
               {question === 3 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       3. Ввод имени слоя и щелчок на кнопке, чтобы сделать слой
                       текущим.
                     </div>
@@ -438,7 +440,7 @@ function Module4() {
               {question === 4 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>
+                    <div className='mb-5 text2'>
                       4. Изменение состояния первоначального слоя.
                     </div>
                     <div
@@ -467,7 +469,9 @@ function Module4() {
               {question === 5 && (
                 <>
                   <div className='question'>
-                    <div className='mb-5 text'>5. Готово. Закройте чертеж.</div>
+                    <div className='mb-5 text2'>
+                      5. Готово. Закройте чертеж.
+                    </div>
                     <div
                       className='container-img'
                       onClick={(e) => onHandleAreaClick(e, 5)}

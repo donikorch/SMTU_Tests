@@ -1,10 +1,13 @@
 require('dotenv').config();
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { User, Group, Admin } = require('../../db/models');
 const generateTokens = require('../../utils/authUtils');
 const configJWT = require('../../middleware/configJWT');
 
+//  модели
+const { User, Group, Admin } = require('../../db/models');
+
+// авторизация (создание куки)
 router.post('/sign-in', async (req, res) => {
   let user;
   try {
@@ -32,15 +35,7 @@ router.post('/sign-in', async (req, res) => {
     user =
       (await User.findOne({
         where: { login },
-        attributes: [
-          'id',
-          'login',
-          'firstName',
-          'lastName',
-          'middleName',
-          'role',
-          'groupId',
-        ],
+        attributes: ['id', 'login', 'name', 'role', 'groupId'],
       })) ||
       (await Admin.findOne({
         where: { login },
@@ -71,6 +66,7 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
+// регистрация
 router.post('/addUser', async (req, res) => {
   const { password, group } = req.body;
   let user;
@@ -112,21 +108,14 @@ router.post('/addUser', async (req, res) => {
   }
 });
 
+// проверка на авторизацию (проверка куки)
 router.get('/check', async (req, res) => {
   try {
     if (res.locals.user) {
       const user =
         (await User.findOne({
           where: { login: res.locals.user.login },
-          attributes: [
-            'id',
-            'login',
-            'firstName',
-            'lastName',
-            'middleName',
-            'role',
-            'groupId',
-          ],
+          attributes: ['id', 'login', 'name', 'role', 'groupId'],
         })) ||
         (await Admin.findOne({
           where: { login: res.locals.user.login },
@@ -149,6 +138,7 @@ router.get('/check', async (req, res) => {
   }
 });
 
+// выход (очистка куки)
 router.get('/logout', (req, res) => {
   try {
     res.clearCookie(configJWT.access.type).clearCookie(configJWT.refresh.type);

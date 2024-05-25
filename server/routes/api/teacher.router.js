@@ -1,9 +1,12 @@
-require("dotenv").config();
-const router = require("express").Router();
-const bcrypt = require("bcrypt");
-const { User, Group, Admin, Result } = require("../../db/models");
+require('dotenv').config();
+const router = require('express').Router();
+const bcrypt = require('bcrypt');
 
-router.get("/groups", async (req, res) => {
+// модели
+const { User, Group, Admin, Result } = require('../../db/models');
+
+// получение всех групп
+router.get('/groups', async (req, res) => {
   try {
     const groups = await Group.findAll({
       where: { adminId: res.locals.user.id },
@@ -14,10 +17,11 @@ router.get("/groups", async (req, res) => {
   }
 });
 
-router.get("/teachers", async (req, res) => {
+// получение всех преподов
+router.get('/teachers', async (req, res) => {
   try {
     const teachers = await Admin.findAll({
-      where: { role: "admin" },
+      where: { role: 'admin' },
     });
     res.status(200).json(teachers);
   } catch ({ message }) {
@@ -25,7 +29,8 @@ router.get("/teachers", async (req, res) => {
   }
 });
 
-router.get("/:number/students", async (req, res) => {
+// получение студентов в группе
+router.get('/:number/students', async (req, res) => {
   const { number } = req.params;
   try {
     const group = await Group.findOne({ where: { number } });
@@ -45,7 +50,8 @@ router.get("/:number/students", async (req, res) => {
   }
 });
 
-router.post("/addGroup", async (req, res) => {
+// добавление группы
+router.post('/addGroup', async (req, res) => {
   const { group } = req.body;
   try {
     const groups = await Group.create({
@@ -57,13 +63,14 @@ router.post("/addGroup", async (req, res) => {
   }
 });
 
-router.delete("/:role/:id", async (req, res) => {
+// удаление студента или препода
+router.delete('/:role/:id', async (req, res) => {
   const { role, id } = req.params;
   try {
-    if (role === "admin") {
+    if (role === 'admin') {
       const result = await Admin.destroy({ where: { id } });
     }
-    if (role === "student") {
+    if (role === 'student') {
       const result = await User.destroy({ where: { id } });
     }
     res.status(200).end();
@@ -72,28 +79,30 @@ router.delete("/:role/:id", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => {
-  const { id, login, password, firstName, lastName, middleName, role } =
+// обновление студента или препода
+router.put('/', async (req, res) => {
+  const { id, login, password, name, firstName, lastName, middleName, role } =
     req.body;
   let hash;
-  if (password !== "*******") {
+  if (password !== '*******') {
     hash = await bcrypt.hash(password, 10);
   }
   const user = {
     id,
     login,
     password: hash || password,
-    firstName,
-    lastName,
-    middleName,
+    name: name || null,
+    firstName: firstName || null,
+    lastName: lastName || null,
+    middleName: middleName || null,
     role,
   };
   try {
     let result;
-    if (role === "admin") {
+    if (role === 'admin') {
       result = await Admin.update(user, { where: { id } });
     }
-    if (role === "student") {
+    if (role === 'student') {
       result = await User.update(user, { where: { id } });
     }
     res.status(200).end(result[0]);
