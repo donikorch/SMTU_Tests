@@ -31,8 +31,8 @@ function ModulesList({ students }) {
     }));
   };
   return (
-    <Container>
-      <ButtonGroup vertical size='lg' className='buttons'>
+    <Container className='results'>
+      <ButtonGroup vertical size='lg' style={{ width: '100%' }}>
         {modules.map((item) => (
           <>
             <Button variant='secondary' onClick={() => handleOpen(item.id)}>

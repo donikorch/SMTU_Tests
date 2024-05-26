@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
@@ -36,8 +35,8 @@ function SelectModule() {
   };
 
   return (
-    <Container className='tests'>
-      <span className='mb-5 text'>Выберите модуль</span>
+    <>
+      <span className='mb-3 text'>Выберите модуль</span>
       <ButtonGroup vertical size='lg' className='buttons'>
         {modules.map((item) => {
           const part1Result = results.find(
@@ -69,7 +68,7 @@ function SelectModule() {
           );
         })}
       </ButtonGroup>
-    </Container>
+    </>
   );
 }
 

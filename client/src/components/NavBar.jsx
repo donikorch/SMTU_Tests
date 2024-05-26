@@ -38,7 +38,7 @@ function NavBar() {
           {user?.login === 'admin' ? (
             <Nav>
               <Nav.Link href='/teacher'>Управление группами</Nav.Link>
-              <Nav.Link href='/admin'>Добавить преподавателя</Nav.Link>
+              <Nav.Link href='/admin'>Управление преподавателями</Nav.Link>
             </Nav>
           ) : (
             <>
@@ -57,7 +57,9 @@ function NavBar() {
         </Container>
       </Navbar>
       <main className='main'>
-        <Outlet />
+        <Container className='tests'>
+          <Outlet />
+        </Container>
       </main>
     </>
   );

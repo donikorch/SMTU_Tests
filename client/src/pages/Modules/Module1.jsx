@@ -466,9 +466,9 @@ function Module1() {
           )
         )
       ) : (
-        <div className='tests'>
+        <>
           <SelectTest moduleId={1} setTest={setTest} />
-        </div>
+        </>
       )}
     </>
   );

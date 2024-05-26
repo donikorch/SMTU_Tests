@@ -2,7 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import DeleteIcon from './DeleteIcon';
-import { useEffect, useState } from 'react';
 
 function ResultCard({ students, isOpen, onClose, item }) {
   return (
@@ -20,7 +19,7 @@ function ResultCard({ students, isOpen, onClose, item }) {
               </tr>
             </thead>
             <tbody>
-              {students.map((student) => (
+              {students?.map((student) => (
                 <tr key={student.id}>
                   <td>{student.name} </td>
 

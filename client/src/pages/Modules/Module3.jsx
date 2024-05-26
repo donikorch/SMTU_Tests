@@ -420,9 +420,9 @@ function Module3() {
           )
         )
       ) : (
-        <div className='tests'>
+        <>
           <SelectTest moduleId={3} setTest={setTest} />
-        </div>
+        </>
       )}
     </>
   );
